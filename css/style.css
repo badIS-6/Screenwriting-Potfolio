@@ -90,8 +90,8 @@ img {
 
 .dark-pattern-bg {
     background-color: var(--black);
-    /* Make sure "site design.jpg" is in your assets/images folder */
-    background-image: url('../assets/images/site\ design.jpg');
+    /* photo */
+    background-image: url('../assets/images/site-design.jpg');
     background-size: cover;
     background-position: center;
     background-attachment: fixed; /* Creates a subtle parallax effect on scroll */
