@@ -8,18 +8,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
     sliders.forEach(slider => {
         const dots = slider.querySelectorAll('.dot');
-        // Assuming you add multiple images inside the slider container later, this will find them. If you only have one image, it won't break.
         const images = slider.querySelectorAll('img'); 
 
         dots.forEach((dot, index) => {
             dot.addEventListener('click', () => {
-                // Remove 'active' class from all dots in this specific slider
                 dots.forEach(d => d.classList.remove('active'));
                 
-                // Add 'active' class to the clicked dot
                 dot.classList.add('active');
 
-                // If you have multiple images stacked, this switches the visible one
                 if (images.length > 1) {
                     images.forEach(img => img.style.display = 'none'); // Hide all
                     if (images[index]) {
@@ -33,7 +29,6 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // 2. SMOOTH SCROLLING FOR ANCHOR LINKS
     
-    // This makes links like <a href="#request-script"> scroll smoothly down the page instead of jumping instantly.
     const anchorLinks = document.querySelectorAll('a[href^="#"]');
 
     anchorLinks.forEach(link => {
@@ -60,7 +55,6 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // 3. DROPDOWN TOUCH SUPPORT (Mobile)
     
-    // Ensures the portfolio dropdown works correctly on touchscreens where there is no "hover" state.
     const dropdown = document.querySelector('.dropdown');
     
     if (dropdown) {
