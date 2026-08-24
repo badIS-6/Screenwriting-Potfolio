@@ -1,2 +1,424 @@
-kgtgt
+/* 
+   1. IMPORTS & VARIABLES
+    */
+@import url('https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+:root {
+    /* Color Palette */
+    --beige: #edeae5;
+    --dark-red: #a81010; /* Deep, intense red from your references */
+    --black: #0c0c0c;
+    --text-dark: #1a1a1a;
+    --text-light: #f5f5f5;
+    
+    /* Typography */
+    --font-script: 'Courier Prime', 'Courier New', Courier, monospace;
+}
+
+/* 
+   2. GLOBAL RESETS & TYPOGRAPHY
+    */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-script);
+    background-color: var(--black);
+    color: var(--text-light);
+    line-height: 1.6;
+    font-size: 16px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 1rem;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: color 0.3s ease;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* 
+   3. REUSABLE LAYOUT CONTAINERS
+    */
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 4rem 2rem;
+}
+
+.narrow-container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.red-text {
+    color: var(--dark-red);
+}
+
+.small-text {
+    font-size: 0.85rem;
+    opacity: 0.8;
+}
+
+/* Background Utility Classes */
+.beige-bg {
+    background-color: var(--beige);
+    color: var(--text-dark);
+}
+
+.dark-bg {
+    background-color: var(--black);
+    color: var(--text-light);
+}
+
+.dark-pattern-bg {
+    background-color: var(--black);
+    /* Make sure "site design.jpg" is in your assets/images folder */
+    background-image: url('../assets/images/site\ design.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed; /* Creates a subtle parallax effect on scroll */
+    color: var(--text-light);
+}
+
+.section-divider {
+    height: 120px;
+    width: 100%;
+}
+
+/* 
+   4. NAVIGATION BAR
+    */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 3rem;
+    background-color: transparent;
+    position: absolute; /* Overlays on top of the hero sections */
+    width: 100%;
+    top: 0;
+    z-index: 100;
+    color: var(--text-light);
+}
+
+.nav-links {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+}
+
+.nav-links a {
+    font-size: 0.9rem;
+    font-weight: 700;
+    padding-bottom: 5px;
+    text-transform: capitalize;
+}
+
+.nav-links a:hover {
+    color: var(--dark-red);
+}
+
+.nav-links a.active {
+    border-bottom: 2px solid var(--dark-red);
+}
+
+/* 
+   5. BUTTONS
+    */
+.btn {
+    display: inline-block;
+    padding: 0.6rem 1.5rem;
+    font-weight: 700;
+    font-size: 0.9rem;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    text-align: center;
+}
+
+.btn-white {
+    background-color: var(--text-light);
+    color: var(--black);
+    border: 1px solid transparent;
+}
+
+.btn-white:hover {
+    background-color: var(--beige);
+}
+
+.btn-red {
+    background-color: var(--dark-red);
+    color: var(--text-light);
+}
+
+.btn-red:hover {
+    background-color: #8a0c0c;
+}
+
+/* 
+   6. HOME PAGE (index.html)
+    */
+.hero {
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+    padding-top: 80px; /* Offset for absolute navbar */
+}
+
+.hero-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 4rem;
+    width: 100%;
+}
+
+.hero-text h1 {
+    font-size: 3.5rem;
+    letter-spacing: -1px;
+    margin-bottom: 0.5rem;
+}
+
+.hero-text h2 {
+    font-size: 1.1rem;
+    font-weight: 400;
+    opacity: 0.9;
+}
+
+.hero-image img {
+    width: 280px;
+    height: auto;
+}
+
+.mission-statement {
+    font-size: 1.3rem;
+    text-align: center;
+}
+
+.project-grid, .teaser-grid, .split-header, .visuals-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+}
+
+.project-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+    border-bottom: 1px solid #333;
+    padding-bottom: 1rem;
+}
+
+.action-buttons {
+    display: flex;
+    gap: 1rem;
+}
+
+/* 
+   7. ABOUT PAGE (about.html)
+    */
+.centered-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.about-hero {
+    padding-top: 120px;
+    min-height: 60vh;
+}
+
+.hero-artwork {
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.about-biography p {
+    margin-bottom: 1.5rem;
+    font-size: 1.1rem;
+    text-align: justify;
+}
+
+/* 
+   8. SUBHUMAN PROJECT PAGE (subhuman.html)
+    */
+.project-hero {
+    padding-top: 120px;
+}
+
+/* The side-by-side Logline/Synopsis layout */
+.content-grid {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 3rem;
+    align-items: start;
+}
+
+.section-label {
+    font-size: 1.4rem;
+}
+
+.section-text p {
+    margin-bottom: 1.5rem;
+    text-align: justify;
+}
+
+.caption {
+    margin-top: 1rem;
+    font-size: 0.9rem;
+    opacity: 0.8;
+}
+
+.button-group {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+    padding: 3rem 2rem;
+}
+
+/* 
+   9. INSPIRATIONS & PORTFOLIO PAGES
+    */
+.masonry-grid {
+    column-count: 3;
+    column-gap: 2rem;
+}
+
+.inspiration-card {
+    break-inside: avoid;
+    margin-bottom: 2rem;
+    background-color: #fff; /* White cards on beige bg */
+    color: var(--text-dark);
+}
+
+.text-only-card {
+    padding: 2rem;
+}
+
+.card-content {
+    padding: 1.5rem;
+}
+
+.card-content h4 {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+}
+
+.card-content p {
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+}
+
+/* Slider Dots */
+.slider-container {
+    position: relative;
+}
+
+.slider-dots {
+    position: absolute;
+    bottom: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 8px;
+}
+
+.dot {
+    width: 8px;
+    height: 8px;
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.dot.active {
+    background-color: var(--dark-red);
+}
+
+/* Portfolio Gallery Grid */
+.project-card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 3rem;
+}
+
+.portfolio-card {
+    display: block;
+    background-color: var(--black);
+    color: var(--text-light);
+    transition: transform 0.3s ease;
+}
+
+.portfolio-card:hover {
+    transform: translateY(-5px);
+}
+
+.card-info {
+    padding: 1.5rem;
+    text-align: center;
+}
+
+/* 
+   10. FOOTER & RESPONSIVE DESIGN
+    */
+.social-footer {
+    padding: 2rem 0;
+}
+
+.social-icon {
+    font-size: 1.5rem;
+    margin: 0 1rem;
+    color: var(--text-dark);
+}
+
+.social-icon:hover {
+    color: var(--dark-red);
+}
+
+/* Mobile Screens */
+@media (max-width: 768px) {
+    .hero-container, .project-grid, .teaser-grid, .split-header, .visuals-grid, .content-grid {
+        grid-template-columns: 1fr;
+        flex-direction: column;
+        gap: 2rem;
+    }
+    
+    .navbar {
+        flex-direction: column;
+        padding: 1rem;
+    }
+    
+    .hero-text h1 {
+        font-size: 2.5rem;
+    }
+    
+    .masonry-grid {
+        column-count: 1;
+    }
+}
 
