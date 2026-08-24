@@ -1,8 +1,9 @@
-/*   1. IMPORTS & VARIABLES */
+/* 
+   1. IMPORTS & VARIABLES
+    */
 @import url('https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 
 :root {
-    
     --beige: #f4f1ea;  
     --dark-red: #9e0b0b; 
     --charcoal: #121212; 
@@ -285,6 +286,33 @@ img {
     gap: 1.5rem;
 }
 
+/* 6B. HOME PAGE IMAGE CAROUSEL (Nekrosis Teaser) */
+.image-carousel {
+    display: flex;
+    flex-direction: row;      
+    flex-wrap: nowrap;        
+    overflow-x: auto;         
+    scroll-snap-type: x mandatory;
+    gap: 1rem;
+    border-radius: 4px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    
+    -ms-overflow-style: none; /* Hide scrollbar IE/Edge */
+    scrollbar-width: none;    /* Hide scrollbar Firefox */
+}
+
+.image-carousel::-webkit-scrollbar {
+    display: none; /* Hide scrollbar Chrome/Safari */
+}
+
+.image-carousel img {
+    flex: 0 0 100%; 
+    scroll-snap-align: start; 
+    object-fit: cover;
+    border-radius: 4px;
+}
+
+
 /* 
    7. ABOUT PAGE & PROJECT PAGE GRIDS
     */
@@ -335,11 +363,53 @@ img {
 /* 
    8. INSPIRATIONS & PORTFOLIO PAGES
     */
-.masonry-grid {
-    column-count: 3;
-    column-gap: 3rem;
+
+/* 8A. Horizontal Slider */
+.horizontal-slider {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    gap: 3rem;
+    overflow-x: auto; 
+    padding: 2rem 4rem 4rem 4rem;
+    scroll-snap-type: x mandatory; 
+    scroll-behavior: smooth;
+    
+    -ms-overflow-style: none;  
+    scrollbar-width: none;  
 }
 
+.horizontal-slider::-webkit-scrollbar {
+    display: none;
+}
+
+.horizontal-slider .inspiration-card {
+    flex: 0 0 400px; 
+    scroll-snap-align: start; 
+}
+
+/* 8B. Inner Card Sliders (Multiple images inside one card) */
+.slider {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.slider::-webkit-scrollbar {
+    display: none;
+}
+
+.slider img {
+    flex: 0 0 100%;
+    scroll-snap-align: start;
+    object-fit: cover;
+}
+
+/* 8C. Inspiration Cards Styling */
 .inspiration-card {
     break-inside: avoid;
     margin-bottom: 3rem;
@@ -369,34 +439,6 @@ img {
 .card-content h4 {
     font-size: 1.1rem;
     margin-bottom: 1rem;
-}
-
-/* Slider Dots */
-.slider-container {
-    position: relative;
-}
-
-.slider-dots {
-    position: absolute;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-    gap: 10px;
-}
-
-.dot {
-    width: 10px;
-    height: 10px;
-    background-color: rgba(255, 255, 255, 0.4);
-    border-radius: 50%;
-    cursor: pointer;
-    transition: 0.3s;
-}
-
-.dot.active, .dot:hover {
-    background-color: var(--dark-red);
-    transform: scale(1.2);
 }
 
 /* Portfolio Gallery Grid */
@@ -483,8 +525,14 @@ img {
         box-shadow: none;
     }
     
-    .masonry-grid {
-        column-count: 1;
+    .horizontal-slider {
+        padding: 2rem 1.5rem;
+        gap: 1.5rem;
+    }
+    
+    .horizontal-slider .inspiration-card {
+        flex: 0 0 85vw; /* On mobile, cards take up 85% of the screen width */
+        scroll-snap-align: center; /* Centers the card on mobile screens */
     }
     
     .project-header {
