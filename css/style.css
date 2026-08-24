@@ -287,6 +287,31 @@ img {
 }
 
 /* 6B. HOME PAGE IMAGE CAROUSEL (Nekrosis Teaser) */
+
+/* Adding a bouncing arrow over the container */
+.teaser-visual {
+    position: relative; 
+}
+
+.teaser-visual::after {
+    content: '➔';
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 2.5rem;
+    color: rgba(255, 255, 255, 0.7);
+    text-shadow: 0 2px 10px rgba(0,0,0,0.8);
+    pointer-events: none; /* So the user can still click/swipe through the arrow */
+    animation: bounceRight 1.5s infinite;
+    z-index: 10;
+}
+
+@keyframes bounceRight {
+    0%, 100% { transform: translate(0, -50%); opacity: 0.5; }
+    50% { transform: translate(10px, -50%); opacity: 1; }
+}
+
 .image-carousel {
     display: flex;
     flex-direction: row;      
@@ -296,19 +321,40 @@ img {
     gap: 1rem;
     border-radius: 4px;
     box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-    
-    -ms-overflow-style: none; /* Hide scrollbar IE/Edge */
-    scrollbar-width: none;    /* Hide scrollbar Firefox */
+    padding-bottom: 10px; /* Space for the scrollbar */
 }
 
-.image-carousel::-webkit-scrollbar {
-    display: none; /* Hide scrollbar Chrome/Safari */
+/* Custom Sleek Scrollbar for Carousels */
+.image-carousel::-webkit-scrollbar,
+.horizontal-slider::-webkit-scrollbar,
+.slider::-webkit-scrollbar {
+    height: 6px; 
+    display: block; 
+}
+
+.image-carousel::-webkit-scrollbar-track,
+.horizontal-slider::-webkit-scrollbar-track,
+.slider::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.1); 
+    border-radius: 10px;
+}
+
+.image-carousel::-webkit-scrollbar-thumb,
+.horizontal-slider::-webkit-scrollbar-thumb,
+.slider::-webkit-scrollbar-thumb {
+    background: var(--dark-red); 
+    border-radius: 10px;
 }
 
 .image-carousel img {
     flex: 0 0 100%; 
     scroll-snap-align: start; 
-    object-fit: cover;
+    
+    /* FIX: Show the whole image without cutting the top or sides */
+    object-fit: contain; 
+    background-color: var(--charcoal-light); /* Fills any empty space beautifully */
+    max-height: 600px; /* Prevents super tall images from breaking the layout */
+    
     border-radius: 4px;
 }
 
@@ -364,7 +410,7 @@ img {
    8. INSPIRATIONS & PORTFOLIO PAGES
     */
 
-/* 8A. Horizontal Slider */
+/* 8A. Horizontal Slider (Main Inspirations Grid) */
 .horizontal-slider {
     display: flex;
     flex-direction: row;
@@ -374,13 +420,6 @@ img {
     padding: 2rem 4rem 4rem 4rem;
     scroll-snap-type: x mandatory; 
     scroll-behavior: smooth;
-    
-    -ms-overflow-style: none;  
-    scrollbar-width: none;  
-}
-
-.horizontal-slider::-webkit-scrollbar {
-    display: none;
 }
 
 .horizontal-slider .inspiration-card {
@@ -395,18 +434,15 @@ img {
     flex-wrap: nowrap;
     overflow-x: auto;
     scroll-snap-type: x mandatory;
-    -ms-overflow-style: none;
-    scrollbar-width: none;
-}
-
-.slider::-webkit-scrollbar {
-    display: none;
+    padding-bottom: 8px; /* space for inner scrollbar */
 }
 
 .slider img {
     flex: 0 0 100%;
     scroll-snap-align: start;
-    object-fit: cover;
+    object-fit: contain; /* Prevents cutting in inner cards too */
+    max-height: 500px;
+    background-color: #000;
 }
 
 /* 8C. Inspiration Cards Styling */
@@ -539,5 +575,10 @@ img {
         flex-direction: column;
         align-items: flex-start;
         gap: 1.5rem;
+    }
+    
+    /* Hide the bouncing arrow on small screens since swiping is natural on phones */
+    .teaser-visual::after {
+        display: none;
     }
 }
