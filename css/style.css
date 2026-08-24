@@ -196,28 +196,25 @@ img {
     cursor: pointer;
     text-align: center;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    
+    background-color: var(--dark-red);
+    color: var(--text-light);
+    border: 1px solid transparent;
 }
 
 .btn:hover {
     transform: translateY(-3px);
     box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+    background-color: #b31010; 
+    color: var(--text-light);
 }
 
-.btn-white {
-    background-color: var(--beige);
-    color: var(--charcoal);
-}
-
-.btn-white:hover {
-    background-color: #fff;
-}
-
-.btn-red {
+.btn-white, .btn-red {
     background-color: var(--dark-red);
     color: var(--text-light);
 }
 
-.btn-red:hover {
+.btn-white:hover, .btn-red:hover {
     background-color: #b31010;
 }
 
