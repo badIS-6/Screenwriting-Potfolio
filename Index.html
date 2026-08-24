@@ -3,285 +3,93 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Badis — Screenwriter</title>
-
-    <meta name="description" content="Screenwriting portfolio of Badis.">
-
+    <title>Badis Zammouri - Screenwriter</title>
+    <!-- Link to CSS file -->
     <link rel="stylesheet" href="css/style.css">
 </head>
-
 <body>
 
-    <!-- 
-         HEADER / NAVIGATION
-    = -->
-
-    <header class="site-header">
-
-        <div class="header-inner">
-
-            <a href="index.html" class="site-logo">
-                BADIS
-            </a>
-
-            <nav class="main-nav">
-
-                <a href="index.html">HOME</a>
-
-                <div class="portfolio-dropdown">
-
-                    <button class="portfolio-button" type="button">
-                        PORTFOLIO
-                        <span class="dropdown-arrow">▾</span>
-                    </button>
-
-                    <div class="portfolio-menu">
-
-                        <a href="portfolio/subhuman.html">
-                            SUBHUMAN
-                        </a>
-
-                        <!-- Add future projects here -->
-
-                    </div>
-
-                </div>
-
-                <a href="inspirations.html">
-                    INSPIRATIONS
-                </a>
-
-            </nav>
-
-        </div>
-
+    <!-- 1. Top Navigation Bar -->
+    <header class="navbar">
+        <div class="logo">Badis Zammouri</div>
+        <nav class="nav-links">
+            <a href="index.html" class="active">Home</a>
+            <a href="#about">About me</a>
+            <div class="dropdown">
+                <a href="portfolio.html">Portfolio ⏷</a>
+            </div>
+            <a href="#inspirations">Inspirations</a>
+            <a href="#search" class="search-icon">🔍</a>
+        </nav>
     </header>
 
-
-    <!-- 
-         HERO
-    = -->
-
-    <main>
-
-        <section class="hero-section">
-
-            <div class="hero-overlay"></div>
-
-            <div class="hero-content">
-
-                <div class="hero-portrait">
-
-                    <!--
-                        Replace this with your actual portrait:
-
-                        assets/images/portrait.jpg
-                    -->
-
-                    <img
-                        src="assets/images/portrait.jpg"
-                        alt="Portrait of Badis"
-                    >
-
-                </div>
-
-                <div class="hero-text">
-
-                    <p class="eyebrow">
-                        SCREENWRITER
-                    </p>
-
-                    <h1>
-                        BADIS
-                    </h1>
-
-                    <p class="hero-description">
-                        Stories about people, monsters, and the things
-                        we become when nobody is watching.
-                    </p>
-
-                </div>
-
+    <!-- 2. Hero Section (Dark red background) -->
+    <section class="hero dark-pattern-bg">
+        <div class="hero-container">
+            <div class="hero-text">
+                <h1>BADIS Zammouri</h1>
+                <h2>Screenwriter | Psychological thrillers, Dark realism, Fiction</h2>
             </div>
-
-        </section>
-
-
-        <!-- 
-             MISSION STATEMENT
-        = -->
-
-        <section class="mission-section">
-
-            <div class="content-container">
-
-                <p class="section-label">
-                    ABOUT THE WORK
-                </p>
-
-                <h2>
-                    Stories should leave<br>
-                    something behind.
-                </h2>
-
-                <p class="mission-text">
-                    I write stories that sit between human drama,
-                    psychological horror, and social reality.
-                    The goal is not simply to entertain, but to
-                    make an audience look at something differently.
-                </p>
-
+            <div class="hero-image">
+                <img src="assets/images/portrait.jpg" alt="Badis Zammouri">
             </div>
+        </div>
+    </section>
 
-        </section>
+    <!-- 3. Mission Statement Band (Beige background) -->
+    <section class="mission-statement beige-bg">
+        <div class="container">
+            <p>My stories strip people down and force them to confront who they become under pressure. They explore identity, control & the true cost of survival.</p>
+        </div>
+    </section>
 
-
-        <!-- 
-             FEATURED SCRIPT
-        = -->
-
-        <section class="featured-script-section">
-
-            <div class="content-container">
-
-                <div class="featured-script-header">
-
-                    <div>
-
-                        <p class="section-label">
-                            FEATURED WORK
-                        </p>
-
-                        <h2>
-                            SUBHUMAN
-                        </h2>
-
+    <!-- 4. Completed Script: Subhuman (Dark background) -->
+    <section class="project-showcase dark-bg">
+        <div class="container project-grid">
+            
+            <!-- Left: Script Cover -->
+            <div class="project-visual">
+                <img src="assets/images/subhuman-cover.jpg" alt="Subhuman Script Cover">
+            </div>
+            
+            <!-- Right: Details and Buttons -->
+            <div class="project-info">
+                <div class="project-header">
+                    <h2 class="red-text">Completed Script</h2>
+                    <div class="action-buttons">
+                        <a href="subhuman.html" class="btn">See full project</a>
+                        <a href="#request" class="btn">Request script</a>
                     </div>
-
-                    <span class="script-status">
-                        COMPLETED SCRIPT
-                    </span>
-
                 </div>
-
-
-                <div class="featured-script">
-
-                    <div class="script-cover">
-
-                        <!--
-                            Replace with your actual script cover:
-
-                            assets/images/subhuman-cover.jpg
-                        -->
-
-                        <img
-                            src="assets/images/subhuman-cover.jpg"
-                            alt="SUBHUMAN screenplay cover"
-                        >
-
-                    </div>
-
-
-                    <div class="script-information">
-
-                        <p class="script-type">
-                            FEATURE / SCREENPLAY
-                        </p>
-
-                        <h3>
-                            SUBHUMAN
-                        </h3>
-
-                        <p class="logline">
-                            A young man is forced to confront the
-                            boundary between humanity and something
-                            far less human.
-                        </p>
-
-                        <p class="script-description">
-                            A completed screenplay exploring identity,
-                            alienation, violence, and the transformation
-                            of the human body and mind.
-                        </p>
-
-                        <a
-                            href="portfolio/subhuman.html"
-                            class="button button-dark"
-                        >
-                            VIEW PROJECT
-                        </a>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- 
-             SCRIPT REQUEST
-        = -->
-
-        <section class="request-section">
-
-            <div class="content-container request-content">
-
-                <p class="section-label">
-                    SCREENPLAY
+                
+                <h3 class="project-title"><span class="red-text">SUBHUMAN / الحيوان</span> -</h3>
+                <p class="project-genre">Feature | Psychological drama</p>
+                
+                <p class="project-logline">
+                    A self-loathing young man tracks down the "perfect guy" who stole his girlfriend, leading him into a cult that feeds on male desire for power and love.
                 </p>
-
-                <h2>
-                    Read the full script.
-                </h2>
-
-                <p>
-                    The screenplay is available upon request.
-                </p>
-
-                <a
-                    href="mailto:YOUR_EMAIL@example.com?subject=SUBHUMAN%20Screenplay%20Request"
-                    class="button button-light"
-                >
-                    REQUEST PDF
-                </a>
-
             </div>
-
-        </section>
-
-    </main>
-
-
-    <!-- 
-         FOOTER
-    = -->
-
-    <footer class="site-footer">
-
-        <div class="footer-inner">
-
-            <p>
-                © 2026 BADIS
-            </p>
-
-            <p>
-                SCREENWRITER
-            </p>
 
         </div>
+    </section>
 
-    </footer>
+    <!-- 5. Teaser Section (Dark background, from image_25b468.jpg) -->
+    <section class="project-teaser dark-bg">
+        <div class="container teaser-grid">
+            
+            <!-- Left: Teaser Text -->
+            <div class="teaser-info">
+                <h2 class="red-text">One project I'm dying to share!</h2>
+                <h3 class="project-title"><span class="red-text">NEKROSIS</span> - Series | Drama, Action</h3>
+            </div>
 
-
-    <!-- 
-         JAVASCRIPT
-    = -->
-
-    <script src="js/main.js"></script>
+            <!-- Right: Teaser Art -->
+            <div class="teaser-visual">
+                <img src="assets/images/nekrosis-art.jpg" alt="Nekrosis Concept Art">
+            </div>
+            
+        </div>
+    </section>
 
 </body>
 </html>
