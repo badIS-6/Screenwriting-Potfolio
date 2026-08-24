@@ -1,22 +1,20 @@
-/* 
-   1. IMPORTS & VARIABLES
-    */
+/* 1. IMPORTS & VARIABLES */
 @import url('https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 
 :root {
-    /* Color Palette */
-    --beige: #edeae5;
-    --dark-red: #a81010; /* Deep, intense red from your references */
-    --black: #0c0c0c;
+    --beige: #f4f1ea; 
+    --dark-red: #9e0b0b; 
+    --charcoal: #121212; 
+    --charcoal-light: #1e1e1e;
     --text-dark: #1a1a1a;
-    --text-light: #f5f5f5;
+    --text-light: #fdfdfd;
     
     /* Typography */
     --font-script: 'Courier Prime', 'Courier New', Courier, monospace;
 }
 
 /* 
-   2. GLOBAL RESETS & TYPOGRAPHY
+   2. GLOBAL RESETS & ANIMATIONS
     */
 * {
     margin: 0;
@@ -24,43 +22,59 @@
     box-sizing: border-box;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     font-family: var(--font-script);
-    background-color: var(--black);
+    background-color: var(--charcoal);
     color: var(--text-light);
-    line-height: 1.6;
-    font-size: 16px;
+    line-height: 1.7;
+    font-size: clamp(1rem, 1.2vw, 1.125rem); 
+    overflow-x: hidden;
+}
+
+/* Gentle fade-in for all major sections */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(15px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+section {
+    animation: fadeIn 1s ease-out forwards;
 }
 
 h1, h2, h3, h4, h5, h6 {
     font-weight: 700;
-    line-height: 1.2;
-    margin-bottom: 1rem;
+    line-height: 1.3;
+    margin-bottom: 1.5rem;
 }
 
 a {
     text-decoration: none;
     color: inherit;
-    transition: color 0.3s ease;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
 img {
     max-width: 100%;
     height: auto;
     display: block;
+    border-radius: 4px; 
 }
 
 /* 
    3. REUSABLE LAYOUT CONTAINERS
     */
 .container {
-    max-width: 1100px;
+    max-width: 1200px;
     margin: 0 auto;
-    padding: 4rem 2rem;
+    padding: clamp(3rem, 6vw, 6rem) 2rem;
 }
 
 .narrow-container {
-    max-width: 800px;
+    max-width: 750px;
     margin: 0 auto;
 }
 
@@ -74,7 +88,7 @@ img {
 
 .small-text {
     font-size: 0.85rem;
-    opacity: 0.8;
+    opacity: 0.7;
 }
 
 /* Background Utility Classes */
@@ -84,84 +98,104 @@ img {
 }
 
 .dark-bg {
-    background-color: var(--black);
+    background-color: var(--charcoal);
     color: var(--text-light);
 }
 
 .dark-pattern-bg {
-    background-color: var(--black);
-    /* photo */
-    background-image: url('../assets/images/site-design.jpg');
+    /* Added a linear gradient overlay to make the text pop while keeping the pattern */
+    background-image: linear-gradient(rgba(18, 18, 18, 0.85), rgba(18, 18, 18, 0.85)), url('../assets/images/site-design.jpg');
     background-size: cover;
     background-position: center;
-    background-attachment: fixed; /* Creates a subtle parallax effect on scroll */
+    background-attachment: fixed; /* Parallax scroll */
     color: var(--text-light);
 }
 
 .section-divider {
-    height: 120px;
+    height: 80px;
     width: 100%;
+    background: linear-gradient(to bottom, var(--charcoal), transparent);
 }
 
 /* 
-   4. NAVIGATION BAR
+   4. MODERN GLASSMORPHISM NAVBAR
     */
 .navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1.5rem 3rem;
-    background-color: transparent;
-    position: absolute; /* Overlays on top of the hero sections */
+    padding: 1.2rem 3rem;
+    position: fixed; 
     width: 100%;
     top: 0;
-    z-index: 100;
+    z-index: 1000;
     color: var(--text-light);
+    background: rgba(18, 18, 18, 0.7); 
+    backdrop-filter: blur(12px); /* Cinematic blur effect */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 .nav-links {
     display: flex;
-    gap: 2rem;
+    gap: 2.5rem;
     align-items: center;
 }
 
 .nav-links a {
-    font-size: 0.9rem;
+    font-size: 0.95rem;
     font-weight: 700;
-    padding-bottom: 5px;
     text-transform: capitalize;
+    position: relative;
+}
+
+/* Fluid underline effect for links instead of a rigid block border */
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -5px;
+    left: 0;
+    background-color: var(--dark-red);
+    transition: width 0.3s ease;
+}
+
+.nav-links a:hover::after,
+.nav-links a.active::after {
+    width: 100%;
 }
 
 .nav-links a:hover {
-    color: var(--dark-red);
-}
-
-.nav-links a.active {
-    border-bottom: 2px solid var(--dark-red);
+    color: var(--text-light);
 }
 
 /* 
-   5. BUTTONS
+   5. FLUID BUTTONS
     */
 .btn {
     display: inline-block;
-    padding: 0.6rem 1.5rem;
+    padding: 0.8rem 2rem;
     font-weight: 700;
-    font-size: 0.9rem;
-    border-radius: 4px;
-    transition: all 0.3s ease;
+    font-size: 0.95rem;
+    border-radius: 3px;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
     cursor: pointer;
     text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
 }
 
 .btn-white {
-    background-color: var(--text-light);
-    color: var(--black);
-    border: 1px solid transparent;
+    background-color: var(--beige);
+    color: var(--charcoal);
 }
 
 .btn-white:hover {
-    background-color: var(--beige);
+    background-color: #fff;
 }
 
 .btn-red {
@@ -170,75 +204,79 @@ img {
 }
 
 .btn-red:hover {
-    background-color: #8a0c0c;
+    background-color: #b31010;
 }
 
 /* 
    6. HOME PAGE (index.html)
     */
 .hero {
-    min-height: 80vh;
+    min-height: 90vh;
     display: flex;
     align-items: center;
-    padding-top: 80px; /* Offset for absolute navbar */
+    padding-top: 100px; 
 }
 
 .hero-container {
-    max-width: 1100px;
+    max-width: 1200px;
     margin: 0 auto;
     padding: 0 2rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    gap: 4rem;
+    gap: 5rem;
     width: 100%;
 }
 
 .hero-text h1 {
-    font-size: 3.5rem;
-    letter-spacing: -1px;
-    margin-bottom: 0.5rem;
+    font-size: clamp(3rem, 5vw, 5rem); 
+    letter-spacing: -2px;
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 10px rgba(0,0,0,0.5);
 }
 
 .hero-text h2 {
-    font-size: 1.1rem;
+    font-size: clamp(1.1rem, 2vw, 1.4rem);
     font-weight: 400;
     opacity: 0.9;
+    border-left: 3px solid var(--dark-red);
+    padding-left: 1rem;
 }
 
 .hero-image img {
-    width: 280px;
-    height: auto;
+    width: 320px;
+    filter: grayscale(20%) contrast(110%);
+    box-shadow: 15px 15px 0px rgba(158, 11, 11, 0.2); 
 }
 
 .mission-statement {
-    font-size: 1.3rem;
+    font-size: clamp(1.2rem, 2.5vw, 1.6rem);
     text-align: center;
 }
 
 .project-grid, .teaser-grid, .split-header, .visuals-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 4rem;
+    grid-template-columns: 1fr 1.2fr; 
+    gap: 5rem;
     align-items: center;
 }
 
 .project-header {
     display: flex;
     justify-content: space-between;
-    align-items: center;
-    margin-bottom: 2rem;
-    border-bottom: 1px solid #333;
+    align-items: flex-end;
+    margin-bottom: 2.5rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     padding-bottom: 1rem;
 }
 
 .action-buttons {
     display: flex;
-    gap: 1rem;
+    gap: 1.5rem;
 }
 
 /* 
-   7. ABOUT PAGE (about.html)
+   7. ABOUT PAGE & PROJECT PAGE GRIDS
     */
 .centered-content {
     display: flex;
@@ -246,50 +284,37 @@ img {
     align-items: center;
 }
 
-.about-hero {
-    padding-top: 120px;
-    min-height: 60vh;
+.about-hero, .project-hero {
+    padding-top: 150px;
+    min-height: 50vh;
 }
 
 .hero-artwork {
-    max-width: 500px;
+    max-width: 550px;
     margin: 0 auto;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.4);
 }
 
 .about-biography p {
-    margin-bottom: 1.5rem;
-    font-size: 1.1rem;
+    margin-bottom: 2rem;
     text-align: justify;
 }
 
-/* 
-   8. SUBHUMAN PROJECT PAGE (subhuman.html)
-    */
-.project-hero {
-    padding-top: 120px;
-}
-
-/* The side-by-side Logline/Synopsis layout */
 .content-grid {
     display: grid;
-    grid-template-columns: 200px 1fr;
-    gap: 3rem;
+    grid-template-columns: 250px 1fr;
+    gap: 4rem;
     align-items: start;
 }
 
 .section-label {
-    font-size: 1.4rem;
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    color: var(--dark-red);
 }
 
 .section-text p {
-    margin-bottom: 1.5rem;
+    margin-bottom: 1.8rem;
     text-align: justify;
-}
-
-.caption {
-    margin-top: 1rem;
-    font-size: 0.9rem;
-    opacity: 0.8;
 }
 
 .button-group {
@@ -297,39 +322,44 @@ img {
     justify-content: center;
     gap: 2rem;
     flex-wrap: wrap;
-    padding: 3rem 2rem;
 }
 
 /* 
-   9. INSPIRATIONS & PORTFOLIO PAGES
+   8. INSPIRATIONS & PORTFOLIO PAGES
     */
 .masonry-grid {
     column-count: 3;
-    column-gap: 2rem;
+    column-gap: 3rem;
 }
 
 .inspiration-card {
     break-inside: avoid;
-    margin-bottom: 2rem;
-    background-color: #fff; /* White cards on beige bg */
+    margin-bottom: 3rem;
+    background-color: #fff;
     color: var(--text-dark);
+    border-radius: 6px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.inspiration-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.15);
 }
 
 .text-only-card {
-    padding: 2rem;
+    padding: 3rem 2rem;
+    background-color: var(--charcoal-light);
+    color: var(--text-light);
 }
 
 .card-content {
-    padding: 1.5rem;
+    padding: 2rem;
 }
 
 .card-content h4 {
-    font-size: 1rem;
-    margin-bottom: 1rem;
-}
-
-.card-content p {
-    font-size: 0.9rem;
+    font-size: 1.1rem;
     margin-bottom: 1rem;
 }
 
@@ -340,85 +370,118 @@ img {
 
 .slider-dots {
     position: absolute;
-    bottom: 15px;
+    bottom: 20px;
     left: 50%;
     transform: translateX(-50%);
     display: flex;
-    gap: 8px;
+    gap: 10px;
 }
 
 .dot {
-    width: 8px;
-    height: 8px;
-    background-color: rgba(255, 255, 255, 0.5);
+    width: 10px;
+    height: 10px;
+    background-color: rgba(255, 255, 255, 0.4);
     border-radius: 50%;
     cursor: pointer;
     transition: 0.3s;
 }
 
-.dot.active {
+.dot.active, .dot:hover {
     background-color: var(--dark-red);
+    transform: scale(1.2);
 }
 
 /* Portfolio Gallery Grid */
 .project-card-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-    gap: 3rem;
+    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+    gap: 4rem;
 }
 
 .portfolio-card {
     display: block;
-    background-color: var(--black);
+    background-color: var(--charcoal-light);
     color: var(--text-light);
-    transition: transform 0.3s ease;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: all 0.4s ease;
 }
 
 .portfolio-card:hover {
-    transform: translateY(-5px);
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+}
+
+.portfolio-card .card-image img {
+    transition: transform 0.6s ease;
+}
+
+.portfolio-card:hover .card-image img {
+    transform: scale(1.05); 
 }
 
 .card-info {
-    padding: 1.5rem;
+    padding: 2rem;
     text-align: center;
 }
 
 /* 
-   10. FOOTER & RESPONSIVE DESIGN
+   9. FOOTER & RESPONSIVE DESIGN
     */
 .social-footer {
-    padding: 2rem 0;
+    padding: 3rem 0;
+    border-top: 1px solid rgba(0,0,0,0.05);
 }
 
 .social-icon {
-    font-size: 1.5rem;
-    margin: 0 1rem;
+    font-size: 1.8rem;
+    margin: 0 1.2rem;
     color: var(--text-dark);
+    transition: all 0.3s ease;
 }
 
 .social-icon:hover {
     color: var(--dark-red);
+    transform: translateY(-4px);
 }
 
 /* Mobile Screens */
-@media (max-width: 768px) {
+@media (max-width: 900px) {
     .hero-container, .project-grid, .teaser-grid, .split-header, .visuals-grid, .content-grid {
         grid-template-columns: 1fr;
         flex-direction: column;
-        gap: 2rem;
+        gap: 3rem;
     }
     
     .navbar {
         flex-direction: column;
         padding: 1rem;
+        background: var(--charcoal); /* Solid background on mobile */
     }
     
-    .hero-text h1 {
-        font-size: 2.5rem;
+    .nav-links {
+        margin-top: 1rem;
+        gap: 1.5rem;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    .hero-image {
+        order: -1; /* image above text on mobile */
+    }
+    
+    .hero-image img {
+        width: 250px;
+        box-shadow: none;
     }
     
     .masonry-grid {
         column-count: 1;
     }
+    
+    .project-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1.5rem;
+    }
 }
-
