@@ -1,0 +1,125 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inspirations - Badis Zammouri</title>
+    <!-- Link to CSS file -->
+    <link rel="stylesheet" href="css/style.css">
+    <!-- FontAwesome Library for Social Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body class="beige-bg">
+
+    <!-- 1. Top Navigation Bar -->
+    <header class="navbar">
+        <div class="logo">Badis Zammouri</div>
+        <nav class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="about.html">About me</a>
+            <div class="dropdown">
+                <a href="portfolio.html">Portfolio ⏷</a>
+            </div>
+            <!-- Note the active class is now on "Inspirations" -->
+            <a href="inspirations.html" class="active">Inspirations</a>
+            <a href="#search" class="search-icon">🔍</a>
+        </nav>
+    </header>
+
+    <!-- 2. Inspirations Header Text -->
+    <section class="inspirations-intro text-center">
+        <div class="container narrow-container">
+            <p>My projects are inspired by some of my favorite stories.</p>
+            <p>All of the following works confront oppressive systems and explore human fragility through uncompromising tone and psychological intensity.</p>
+        </div>
+    </section>
+
+    <!-- 3. Inspirations Grid -->
+    <section class="inspirations-gallery">
+        <div class="container masonry-grid">
+            
+            <!-- Card 1: Children of Men -->
+            <div class="inspiration-card">
+                <div class="card-image">
+                    <img src="assets/images/children-of-men.jpg" alt="Children of Men Poster">
+                </div>
+                <div class="card-content">
+                    <h4>Children of Men (2006)</h4>
+                    <p>Using decaying environments and systemic collapse as a backdrop, where personal survival stories reveal broader societal failure.</p>
+                    <p>The global immigration crisis.</p>
+                </div>
+            </div>
+
+            <!-- Card 2: Blue Eye Samurai & Oldboy (Contains Slider Dots) -->
+            <div class="inspiration-card">
+                <div class="card-image slider-container">
+                    <img src="assets/images/blue-eye-samurai.jpg" alt="Blue Eye Samurai Poster">
+                    <div class="slider-dots">
+                        <span class="dot active"></span>
+                        <span class="dot"></span>
+                    </div>
+                </div>
+                <div class="card-content">
+                    <h4>Blue Eye Samurai (2023-) & Oldboy (2003)</h4>
+                    <p>Character constructed around fractured identity, self-hatred, and personal obsessions.</p>
+                </div>
+            </div>
+
+            <!-- Card 3: Requiem, Platoon, Trainspotting (Contains Slider Dots) -->
+            <div class="inspiration-card">
+                <div class="card-image slider-container">
+                    <img src="assets/images/platoon.jpg" alt="Platoon Poster">
+                    <div class="slider-dots">
+                        <span class="dot active"></span>
+                        <span class="dot"></span>
+                        <span class="dot"></span>
+                    </div>
+                </div>
+                <div class="card-content">
+                    <h4>Requiem for a Dream (2000), Platoon (1986) & Trainspotting (1996)</h4>
+                    <p>Addiction & escape. Violence as a consequence of one's environment.</p>
+                </div>
+            </div>
+
+            <!-- Card 4: Kids (Text-Only Card) -->
+            <div class="inspiration-card text-only-card">
+                <div class="card-content">
+                    <h4>Kids (1995)</h4>
+                    <p>The unfiltered depiction of youth and social dynamics.</p>
+                    <p>The absence of moral framing allows behaviors to speak for themselves.</p>
+                </div>
+            </div>
+
+            <!-- Card 5: V for Vendetta & The Boys (Contains Slider Dots) -->
+            <div class="inspiration-card">
+                <div class="card-image slider-container">
+                    <img src="assets/images/v-for-vendetta.jpg" alt="V for Vendetta Poster">
+                    <div class="slider-dots">
+                        <span class="dot active"></span>
+                        <span class="dot"></span>
+                    </div>
+                </div>
+                <div class="card-content">
+                    <h4>V for Vendetta (2005) & The Boys (2019-)</h4>
+                    <p>The exploration of power and rebellion while exposing how systems manipulate us.</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- 4. Footer Band with Social Links -->
+    <footer class="beige-bg social-footer text-center">
+        <div class="container">
+            <a href="https://www.linkedin.com/in/your-profile-here" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="LinkedIn">
+                <i class="fa-brands fa-linkedin"></i>
+            </a>
+            <a href="https://www.instagram.com/your-profile-here" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="Instagram">
+                <i class="fa-brands fa-instagram"></i>
+            </a>
+        </div>
+    </footer>
+
+</body>
+</html>
