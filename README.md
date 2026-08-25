@@ -1,6 +1,7 @@
-# PROJECTS
+# PROJECTS:
 
-* A3radh Janibia (short)
-* Subhuman / الحيوان (Feature)
-* Hostis (Feature)
-* Nekrosis (Series)
+##Screenplays:
+* **A3radh Janibia** (short)
+* **Subhuman / الحيوان** (Feature/mini-series)
+* **Hostis** (Feature)
+* **Nekrosis** (Series)
