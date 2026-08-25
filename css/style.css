@@ -1,21 +1,20 @@
 /* 
-   1. IMPORTS & VARIABLES (THRILLER EDITION)
+   1. IMPORTS & VARIABLES 
     */
-/* Importing Courier for text, and Bebas Neue for cinematic titles */
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 
 :root {
-    --beige: #e8e4d9; /* Dirtier, older paper color */
-    --blood-red: #8a0303; /* Deep dried blood */
-    --neon-red: #d10000; /* Fresh cinematic blood */
-    --charcoal: #080808; /* Pitch black */
+    --beige: #e8e4d9;  
+    --blood-red: #8a0303;  
+    --neon-red: #d10000;  
+    --charcoal: #080808;  
     --charcoal-light: #151515;
     --text-dark: #111111;
     --text-light: #f5f5f5;
     
     /* Typography */
     --font-script: 'Courier Prime', monospace;
-    --font-display: 'Bebas Neue', sans-serif; /* The new title font */
+    --font-display: 'Bebas Neue', sans-serif;  
 }
 
 /* 
@@ -75,7 +74,6 @@ img {
     max-width: 100%;
     height: auto;
     display: block;
-    /* Sharp cinematic cuts, no rounded corners */
     border-radius: 0; 
 }
 
@@ -87,7 +85,7 @@ img {
     margin: 0 auto;
     padding: clamp(3rem, 6vw, 6rem) 2rem;
     position: relative;
-    z-index: 2; /* Keeps text above the blood stains */
+    z-index: 2; 
 }
 
 .narrow-container { max-width: 750px; margin: 0 auto; }
@@ -97,7 +95,7 @@ img {
 
 .red-text {
     color: var(--neon-red);
-    text-shadow: 0 0 15px rgba(209, 0, 0, 0.4); /* Subtle glow on red text */
+    text-shadow: 0 0 15px rgba(209, 0, 0, 0.4); 
 }
 
 .small-text {
@@ -114,8 +112,7 @@ img {
 .beige-bg {
     background-color: var(--beige);
     color: var(--text-dark);
-    /* 1. Subtle SVG Noise for Paper Texture */
-    /* 2. Radial gradients for dried blood stains on the paper */
+   
     background-image: 
         radial-gradient(circle at 10% 90%, rgba(138, 3, 3, 0.15) 0%, transparent 40%),
         radial-gradient(circle at 90% 10%, rgba(90, 5, 5, 0.1) 0%, transparent 30%),
@@ -126,12 +123,10 @@ img {
 .dark-bg {
     background-color: var(--charcoal);
     color: var(--text-light);
-    /* Blood glow in the dark sections */
     background-image: radial-gradient(circle at 50% 0%, rgba(138, 3, 3, 0.15) 0%, transparent 70%);
 }
 
 .dark-pattern-bg {
-    /* Merging your pattern with deep red cinematic corner shadows */
     background-image: 
         radial-gradient(circle at top left, rgba(138, 3, 3, 0.6), transparent 50%),
         radial-gradient(circle at bottom right, rgba(20, 0, 0, 0.9), transparent 60%),
@@ -145,7 +140,6 @@ img {
 .section-divider {
     height: 60px;
     width: 100%;
-    /* A harsh, bloody gradient instead of a soft fade */
     background: linear-gradient(to bottom, var(--charcoal), var(--blood-red), var(--charcoal));
     opacity: 0.8;
 }
@@ -219,7 +213,7 @@ img {
 .btn:hover {
     transform: scale(1.05);
     background-color: var(--neon-red); 
-    box-shadow: 0 0 20px rgba(209, 0, 0, 0.6); /* Red glowing hover */
+    box-shadow: 0 0 20px rgba(209, 0, 0, 0.6); 
     color: white;
 }
 
@@ -229,7 +223,7 @@ img {
 }
 
 /* 
-   7. HOME PAGE (index.html)
+   7. HOME PAGE  
     */
 .hero {
     min-height: 95vh;
@@ -250,13 +244,13 @@ img {
 }
 
 .hero-text h1 {
-    font-size: clamp(4rem, 8vw, 7rem); /* Massive title */
+    font-size: clamp(4rem, 8vw, 7rem);  
     margin-bottom: 0.5rem;
-    text-shadow: 4px 4px 0px rgba(138, 3, 3, 0.5); /* Offset thriller shadow */
+    text-shadow: 4px 4px 0px rgba(138, 3, 3, 0.5); 
 }
 
 .hero-text h2 {
-    font-family: var(--font-script); /* Keep subtext courier */
+    font-family: var(--font-script);  
     text-transform: none;
     font-size: clamp(1.1rem, 2vw, 1.4rem);
     border-left: 4px solid var(--neon-red);
@@ -265,9 +259,9 @@ img {
 
 .hero-image img {
     width: 350px;
-    filter: grayscale(80%) contrast(120%); /* Gritty portrait filter */
+    filter: grayscale(80%) contrast(120%);  
     border: 1px solid #333;
-    box-shadow: 20px 20px 0px rgba(138, 3, 3, 0.3); /* Harsh offset shadow */
+    box-shadow: 20px 20px 0px rgba(138, 3, 3, 0.3);  
 }
 
 .mission-statement {
