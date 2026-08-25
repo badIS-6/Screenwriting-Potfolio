@@ -419,6 +419,76 @@ img {
 
 .social-icon:hover { color: var(--neon-red); transform: translateY(-4px) scale(1.1); }
 
+/* 
+   10. CAROUSEL NAVIGATION (ARROWS & PROGRESS)
+*/
+.carousel-wrapper {
+    position: relative;
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+/* Cinematic Navigation Arrows */
+.carousel-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(8, 8, 8, 0.85); /* Dark translucent background */
+    color: var(--neon-red);
+    border: 1px solid var(--blood-red);
+    width: 45px;
+    height: 45px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    z-index: 10;
+    font-size: 1.5rem;
+    font-family: var(--font-display);
+    transition: all 0.3s ease;
+    backdrop-filter: blur(4px);
+}
+
+.carousel-arrow:hover {
+    background: var(--neon-red);
+    color: var(--text-light);
+    box-shadow: 0 0 15px rgba(209, 0, 0, 0.6);
+    border-color: var(--neon-red);
+}
+
+.carousel-arrow.prev { left: 15px; }
+.carousel-arrow.next { right: 15px; }
+
+/* Enhanced Progress Bar (Scrollbar) */
+.image-carousel::-webkit-scrollbar, 
+.horizontal-slider::-webkit-scrollbar, 
+.slider::-webkit-scrollbar {
+    height: 6px; /* Slightly thicker to look like a progress bar */
+    display: block;
+}
+
+.image-carousel::-webkit-scrollbar-track, 
+.horizontal-slider::-webkit-scrollbar-track, 
+.slider::-webkit-scrollbar-track {
+    background: var(--charcoal-light);
+    border-top: 1px solid #333;
+}
+
+.image-carousel::-webkit-scrollbar-thumb, 
+.horizontal-slider::-webkit-scrollbar-thumb, 
+.slider::-webkit-scrollbar-thumb {
+    background: var(--blood-red);
+    border-radius: 0; /* Keep it sharp */
+    box-shadow: inset 0 0 5px rgba(0,0,0,0.5);
+}
+
+.image-carousel::-webkit-scrollbar-thumb:hover, 
+.horizontal-slider::-webkit-scrollbar-thumb:hover, 
+.slider::-webkit-scrollbar-thumb:hover {
+    background: var(--neon-red);
+}
+
 /* Mobile Screens */
 @media (max-width: 900px) {
     .hero-container, .project-grid, .teaser-grid, .split-header, .visuals-grid, .content-grid {
