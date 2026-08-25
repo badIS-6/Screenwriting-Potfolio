@@ -1,3 +1,5 @@
+<!DOCTYPE html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -79,19 +81,28 @@
             
             <!-- Left: Image Slider -->
             <div class="concept-art">
-                <div class="image-carousel">
-                    <img src="../assets/images/ca1.png" alt="Nekrosis Concept Art 2">
-                    <img src="../assets/images/ca3.png" alt="Nekrosis Concept Art 3">
-                    <img src="../assets/images/ca2.png" alt="Nekrosis Concept Art 4">
-                    <img src="../assets/images/ca4.png" alt="Nekrosis Concept Art 4">
-                    <img src="../assets/images/ca5.png" alt="Nekrosis Concept Art 4">
-                    <img src="../assets/images/ca7.png" alt="Nekrosis Concept Art 4">
-                    <img src="../assets/images/ca6.png" alt="Nekrosis Concept Art 4">
-                    <img src="../assets/images/ca8.png" alt="Nekrosis Concept Art 4">
-                    <img src="../assets/images/ca10.png" alt="Nekrosis Concept Art 4">
-                    <img src="../assets/images/ca9.png" alt="Nekrosis Concept Art 4">
-                    <img src="../assets/images/ca11.png" alt="Nekrosis Concept Art 4">
-                    <img src="../assets/images/ca12.png" alt="Nekrosis Concept Art 4">
+                <!-- NEW WRAPPER AND ARROWS -->
+                <div class="carousel-wrapper">
+                    <!-- Left Arrow -->
+                    <button class="carousel-arrow prev" aria-label="Previous image">&#10094;</button>
+                    
+                    <div class="image-carousel">
+                        <img src="../assets/images/ca1.png" alt="Nekrosis Concept Art 2">
+                        <img src="../assets/images/ca3.png" alt="Nekrosis Concept Art 3">
+                        <img src="../assets/images/ca2.png" alt="Nekrosis Concept Art 4">
+                        <img src="../assets/images/ca4.png" alt="Nekrosis Concept Art 4">
+                        <img src="../assets/images/ca5.png" alt="Nekrosis Concept Art 4">
+                        <img src="../assets/images/ca7.png" alt="Nekrosis Concept Art 4">
+                        <img src="../assets/images/ca6.png" alt="Nekrosis Concept Art 4">
+                        <img src="../assets/images/ca8.png" alt="Nekrosis Concept Art 4">
+                        <img src="../assets/images/ca10.png" alt="Nekrosis Concept Art 4">
+                        <img src="../assets/images/ca9.png" alt="Nekrosis Concept Art 4">
+                        <img src="../assets/images/ca11.png" alt="Nekrosis Concept Art 4">
+                        <img src="../assets/images/ca12.png" alt="Nekrosis Concept Art 4">
+                    </div>
+
+                    <!-- Right Arrow -->
+                    <button class="carousel-arrow next" aria-label="Next image">&#10095;</button>
                 </div>
             </div>
             
@@ -112,6 +123,8 @@
             <a href="hostis.html" class="btn btn-red">Next project</a>
         </div>
     </section>
+
+    <script src="../js/main.js"></script>
 
 </body>
 </html>
