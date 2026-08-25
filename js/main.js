@@ -1,9 +1,6 @@
-// Wait for the DOM to fully load before running scripts
 document.addEventListener('DOMContentLoaded', () => {
 
-    
-    // 1. IMAGE SLIDER LOGIC (Inspirations Page)
-    
+    // 1. IMAGE SLIDER LOGIC
     const sliders = document.querySelectorAll('.slider-container');
 
     sliders.forEach(slider => {
@@ -17,9 +14,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 dot.classList.add('active');
 
                 if (images.length > 1) {
-                    images.forEach(img => img.style.display = 'none'); // Hide all
+                    images.forEach(img => img.style.display = 'none');  
                     if (images[index]) {
-                        images[index].style.display = 'block'; // Show matched image
+                        images[index].style.display = 'block';  
                     }
                 }
             });
@@ -28,7 +25,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     
     // 2. SMOOTH SCROLLING FOR ANCHOR LINKS
-    
     const anchorLinks = document.querySelectorAll('a[href^="#"]');
 
     anchorLinks.forEach(link => {
@@ -54,7 +50,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     
     // 3. DROPDOWN TOUCH SUPPORT (Mobile)
-    
     const dropdown = document.querySelector('.dropdown');
     
     if (dropdown) {
@@ -62,5 +57,25 @@ document.addEventListener('DOMContentLoaded', () => {
             dropdown.classList.toggle('touch-active');
         });
     }
+
+
+    // 4. CINEMATIC CAROUSEL ARROWS 
+    document.querySelectorAll('.carousel-wrapper').forEach(wrapper => {
+        const carousel = wrapper.querySelector('.image-carousel');
+        const prevBtn = wrapper.querySelector('.prev');
+        const nextBtn = wrapper.querySelector('.next');
+
+        if (!carousel) return;
+
+        // Scroll right
+        nextBtn.addEventListener('click', () => {
+            carousel.scrollBy({ left: carousel.clientWidth, behavior: 'smooth' });
+        });
+
+        // Scroll left
+        prevBtn.addEventListener('click', () => {
+            carousel.scrollBy({ left: -carousel.clientWidth, behavior: 'smooth' });
+        });
+    });
 
 });
